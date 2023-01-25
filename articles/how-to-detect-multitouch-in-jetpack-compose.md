@@ -2,7 +2,7 @@
 title: Jetpack Composeでマルチタップを検知する
 emoji: "🚀"
 type: "tech"
-topics: [Android]
+topics: ["Android", "Jetpack Compose"]
 published: true
 published_at: 2022-01-15 17:00
 ---
