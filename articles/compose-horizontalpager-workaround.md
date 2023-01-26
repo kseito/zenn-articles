@@ -4,7 +4,7 @@ emoji: "🚀"
 type: "tech"
 topics: ["Android", "Jetpack Compose"]
 published: true
-published_at: 2021-12-19 12:00:00
+published_at: 2021-12-19 12:00
 ---
 
 公私共にJetpack Composeを使ってコードを書く頻度が増えてきました。
