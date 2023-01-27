@@ -2,7 +2,7 @@
 title: SharedPreferencesの保存速度を計測してみた
 emoji: "🤖"
 type: "tech"
-tags: ["Android"]
+topics: ["Android"]
 published: true
 published_at: 2020-02-11 09:23
 ---

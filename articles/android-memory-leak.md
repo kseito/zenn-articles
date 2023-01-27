@@ -2,7 +2,7 @@
 title: 2020年のAndroidアプリ開発でメモリリークは考慮する必要があるのか
 emoji: "🤖"
 type: "tech"
-tags: ["Android"]
+topics: ["Android"]
 published: true
 published_at: 2020-10-25 21:00
 ---
