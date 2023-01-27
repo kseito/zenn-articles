@@ -16,13 +16,13 @@ DaggerのModuleとComponentの紐付けについて考えていると、DIする
 
 こちらを使ってDaggerのSingletonComponentで生成されるクラスのメモリ使用量を調べると下記のようになりました。
 
-![Mempry Profilerからダンプしたメモリ情報１](./how-to-check-object-size-in-android/ide-image1.png)
+![Mempry Profilerからダンプしたメモリ情報１](/images/how-to-check-object-size-in-android/ide-image1.png)
 
 なぜかTodoRepositoryのインスタンスが４つもできてますね…
 インスタンスによって使用しているメモリサイズが異なるのが気になります。
 試しにTodoRepositoryを提供しているメソッドに@Singletonを付けると下記のようになりました。
 
-![Mempry Profilerからダンプしたメモリ情報２](./how-to-check-object-size-in-android/ide-image2.png)
+![Mempry Profilerからダンプしたメモリ情報２](/images/how-to-check-object-size-in-android/ide-image2.png)
 
 インスタンスが１つになりました。
 シングルトンにできていない状態でも5KB程度かつ今回調査したアプリでDaggerのSingletonComponentで生成しているクラスは100未満、仮に100個のクラスをインスタンス化したとしてもメモリ使用量は500KBと考えると全く問題なさそうです。
