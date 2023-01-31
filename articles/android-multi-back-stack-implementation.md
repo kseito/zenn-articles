@@ -3,18 +3,18 @@ title: "Multi Back Stackを実装する"
 emoji: "✨"
 type: "tech"
 topics: [Android]
-published: false
+published: true
 ---
 
 [Navigationライブラリの2.4.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01)からMulti Back Stackという複数のnavigatioh graphを戻るアクション含め一括管理してくれる便利な機能が提供されています。
 が、[公式ドキュメント](https://developer.android.com/guide/navigation/multi-back-stacks)だけだと実装の流れを理解し難かったので備忘録として書きます。
-ざっくりした流れは下記になります。（[公式サンプル](https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample)をベースにしています）
+BottomNavigationViewを使ってMulti Back Stackを実現する際のざっくりした実装の流れは下記になります。（[公式サンプル](https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample)をベースにしています）
 - 各タブで扱うFragment, navigationグラフのxmlを定義する
-- ベースとなるActivityを作成しFragmentContainerViewを持たせる
-- 各タブで扱うnavigationグラフをFragmentContainerViewのパラメータに設定
+- 各navigationグラフを束ねるnavigationグラフを作成する
+- ベースとなるActivityを作成しFragmentContainerViewを持たせパラメータを設定する
 - ActivityでNavigationライブラリのメソッドを呼び出す
 
-より具体的な手順を下記に書いていきます。
+各手順の詳細を下記に書いていきます。
 
 ### 各タブで扱うFragment, navigationグラフのxmlを定義する
 公式サンプルでは下記のFragmentとnavigationグラフを準備しています。
@@ -87,8 +87,7 @@ setupActionBarWithNavController(navController, appBarConfiguration)
 ```
 
 ### おまけ
-Multi Back Stackを使うと上記のような簡単に実装できます。
-また、タブを押した時に追加でUIの変更を行いたい場合には`NavController.addOnDestinationChangedListener`を使うとタブ押下イベントを拾うことができます。
+タブを押した時に追加でUIの変更等何らかの処理を実施したい場合には`NavController.addOnDestinationChangedListener`を使うとタブ押下イベントを拾うことができます。
 
 ### 参考サイト
 - https://developer.android.com/guide/navigation/multi-back-stacks
