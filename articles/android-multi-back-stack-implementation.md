@@ -1,14 +1,14 @@
 ---
-title: "Multi Back Stackを実装する"
+title: "Multiple Back Stacksを実装する"
 emoji: "✨"
 type: "tech"
 topics: [Android]
 published: true
 ---
 
-[Navigationライブラリの2.4.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01)からMulti Back Stackという複数のnavigatioh graphを戻るアクション含め一括管理してくれる便利な機能が提供されています。
+[Navigationライブラリの2.4.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.4.0-alpha01)からMultiple Back Stacksという複数のnavigatioh graphを戻るアクション含め一括管理してくれる便利な機能が提供されています。
 が、[公式ドキュメント](https://developer.android.com/guide/navigation/multi-back-stacks)だけだと実装の流れを理解し難かったので備忘録として書きます。
-BottomNavigationViewを使ってMulti Back Stackを実現する際のざっくりした実装の流れは下記になります。（[公式サンプル](https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample)をベースにしています）
+BottomNavigationViewを使ってMultiple Back Stacksを実現する際のざっくりした実装の流れは下記になります。（[公式サンプル](https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample)をベースにしています）
 - 各タブで扱うFragment, navigationグラフのxmlを定義する
 - 各navigationグラフを束ねるnavigationグラフを作成する
 - ベースとなるActivityを作成しFragmentContainerViewを持たせパラメータを設定する
