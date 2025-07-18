@@ -22,7 +22,7 @@ Android Studio Narwhal以降、Swiftコードの認識や「Xcode Application」
     プロジェクトが開かれ、画面上部の実行構成（Run Configuration）にターゲットアプリが「Xcode Application」として表示されていれば準備完了です。ここからビルドや実行が行えます。
 
 ### プロジェクトの読み込みに成功した時
-![[Android StudioでiOSアプリを開く-1752803025519.webp]]
+![Android StudioでiOSアプリを開く](/images/android-studio-ios-configuration.webp)
 
 ## まとめ
 
