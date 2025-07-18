@@ -3,7 +3,7 @@ title: "Android StudioでiOSアプリを開いて実行する方法"
 emoji: "🤖"
 type: "tech"
 topics: ["Android","AndroidStudio"]
-published: false
+published: true
 ---
 
 本記事では、Android Studioを使ってiOSアプリを開き実行するまでの手順を解説します。
