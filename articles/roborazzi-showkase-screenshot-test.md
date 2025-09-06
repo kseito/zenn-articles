@@ -1,9 +1,9 @@
 ---
 title: "Roborazzi + Robolectric + Showkaseを用いたスクリーンショットテスト"
-emoji: "🤖"
+emoji: "📸"
 type: "tech"
 topics: ["Android", "ScreenshotTesting", "Roborazzi", "Showkase", "JetpackCompose"]
-published: false
+published: true
 ---
 
 ## はじめに
