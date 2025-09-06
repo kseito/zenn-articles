@@ -7,8 +7,8 @@ published: false
 ---
 
 ## はじめに
-Roborazzi、Robolectric、Showkaseを組み合わせるとすでに存在するComposeのプレビューに対してスクリーンショットテストを行うことができます。  
-それをCIで実行すれば比較的シンプルな仕組みでVRT（Visual Regglession Test）を整備できます。
+この記事では、Roborazzi、Robolectric、Showkaseを組み合わせ、既存のComposeプレビューをそのまま活用したスクリーンショットテストの導入方法を紹介します。
+開発が進む中で発生しがちなUIの意図しない変更（リグレッション）を、CI上で自動検知するVRT（Visual Regression Test）の仕組みを、比較的シンプルに構築することが目標です。
 
 ## 前提知識
 各ライブラリの説明を簡単に記載します。
@@ -144,6 +144,9 @@ class ShowkaseParameterizedTest(private val testCase: TestCase) {
 
 生成されるファイル例：
 - `screenshots/BottomBar_Navigation.png`
+
+## 補足
+TBD(CI側では上記コマンドを組み合わせてVRTを実現する必要があることを記す)
 
 ## まとめ
 このような仕組みを整備することで下記のような恩恵を受けることができます。
