@@ -127,8 +127,10 @@ class ShowkaseParameterizedTest(private val testCase: TestCase) {
 一連の処理が実行されることによってPreviewアノテーションが付いている全てのComposable関数のスクリーンショットを実現しています。
 
 ## 結果・動作確認
+テストを実行すると、`screenshots/`ディレクトリに各コンポーネントの下記のようなスクリーンショットが生成されます。  
 
-テストを実行すると、`screenshots/`ディレクトリに各コンポーネントのスクリーンショットが生成されます。  
+![スクリーンショットテストの実行結果](/images/roborazzi-showkase-screenshot-test/SettingScreenPreview_Default_Group_compare.png)
+
 テストする際は下記のコマンドを使い分けます。
 
 ```bash
