@@ -15,8 +15,8 @@ published: false
 
 ### Roborazzi
 Androidアプリのスクリーンショットテストを行うためのライブラリです。  
-Robolectricと組み合わせることで、実機やエミュレーターを使用せずにJVMのみでUIテストとスクリーンショットの撮影が可能です。
-Composeに対応しており、UIの変更を視覚的に検知するVRT（Visual Regression Testing）を簡単に実現できます。
+Robolectricと組み合わせることで、実機やエミュレーターを使用せずにJVMのみでスクリーンショットの撮影が可能です。
+Jetpack Composeに対応しており、UIの変更を視覚的に検知するVRT（Visual Regression Test）を簡単に実現できます。
 
 ### Robolectric
 AndroidアプリのコードをJVM上で実行するためのテスティングフレームワークです。  
@@ -24,7 +24,7 @@ AndroidアプリのコードをJVM上で実行するためのテスティング�
 
 ### Showkase
 ShowkaseはJetpack Composeの`@Preview`が付いたComposable関数を自動収集するライブラリです。  
-デザインシステムのコンポーネントカタログの作成や、全てのプレビューに対する一括テストを可能にします。
+全てのプレビューに対する一括テストを可能にします。
 
 ## 導入手順
 
@@ -74,9 +74,9 @@ dependencies {
 class ShowkaseModule : ShowkaseRootModule
 ```
 
-#### パラメータライズドテストの実装
+#### パラメタライズドテストの実装
 
-すべてのShowkaseコンポーネントを自動的にテストするパラメータライズドテストを作成します。
+すべてのShowkaseコンポーネントを自動的にテストするパラメタライズドテストを作成します。
 
 **ShowkaseParameterizedTest**
 ```kotlin
@@ -121,8 +121,8 @@ class ShowkaseParameterizedTest(private val testCase: TestCase) {
 
 ### 3. ポイント
 - ShowkaseでPreviewアノテーションがついているComposable関数を収集
-- 収集したComposable関数をパラメータとしてパラメータライズドテストを実行する
-- パラメータライズドテストでRoborazziのcaptureRoboImageメソッドを実行することでスクリーンショットを生成
+- 収集したComposable関数をパラメータとしてパラメタライズドテストを実行する
+- パラメタライズドテストでRoborazziのcaptureRoboImageメソッドを実行することでスクリーンショットを生成
 
 一連の処理が実行されることによってPreviewアノテーションが付いている全てのComposable関数のスクリーンショットを実現しています。
 
