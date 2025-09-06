@@ -8,7 +8,7 @@ published: false
 
 ## はじめに
 この記事では、Roborazzi、Robolectric、Showkaseを組み合わせ、既存のComposeプレビューをそのまま活用したスクリーンショットテストの導入方法を紹介します。
-開発が進む中で発生しがちなUIの意図しない変更（リグレッション）を、CI上で自動検知するVRT（Visual Regression Test）の仕組みを、比較的シンプルに構築することが目標です。
+開発が進む中で発生しがちなUIの意図しない変更（リグレッション）を、CI上で自動検知するVRT（Visual Regression Test）の仕組みを、比較的シンプルに構築する方法を紹介します。
 
 ## 前提知識
 各ライブラリの説明を簡単に記載します。
@@ -145,15 +145,30 @@ class ShowkaseParameterizedTest(private val testCase: TestCase) {
 生成されるファイル例：
 - `screenshots/BottomBar_Navigation.png`
 
-## 補足
-TBD(CI側では上記コマンドを組み合わせてVRTを実現する必要があることを記す)
+## CI/CDでのVRT実現
+
+実際のCI/CD環境でVRTを動作させるには、上記のコマンドを組み合わせた運用が必要です。
+
+### 基本的なワークフロー
+
+1. **ベースライン作成**: mainブランチで`recordRoborazziDebug`を実行し、スクリーンショットを保存[^1]
+2. **変更検知**: Pull Requestで`compareRoborazziDebug`を実行し、差分を検出
+3. **結果確認**: `verifyRoborazziDebug`で差分がある場合はCIを失敗させ、レビュー時に差分画像を確認
+
+この仕組みにより、UIに意図しない変更が加わった際に自動的にCIで検知され、安全性を保ちながら開発を進めることができます。
 
 ## まとめ
-このような仕組みを整備することで下記のような恩恵を受けることができます。
+このような仕組みを整備することで、下記のような恩恵を受けることができます。
 
-- 新しいコンポーネントを追加しても自動的にテスト対象になります
-- CI/CDに統合することでPRごとにUIの変更を確認できレビューの品質が向上します
-- 生成AIを使ってコードを書く際、ガードレールの1つとして有用
+### テスト対象の自動化
+新しいコンポーネントに`@Preview`を追加するだけで自動的にテスト対象となるため、テストの追加漏れがなくなり、メンテナンスコストが削減されます。
+
+### レビュー品質の向上
+CI/CDに統合することで、Pull RequestごとにUIの変更点を画像で確認できます。  
+これにより、コードレビューだけでは見つけにくい視覚的な変化を逃さず、レビューの質と効率が上がります。
+
+### 安全なコード生成の支援
+生成AIを使ってコードを書く際に、このテストが意図しないUIの変更を検知するガードレールとして機能します。
 
 特に最後の恩恵は、これから生成AIがコードを書く機会は益々増えていくため、開発速度を上げる仕組みとして重要性が高まると思っています。
 
@@ -162,3 +177,5 @@ TBD(CI側では上記コマンドを組み合わせてVRTを実現する必要�
 - https://github.com/takahirom/roborazzi
 - https://github.com/airbnb/Showkase
 - https://github.com/kseito/RewardedTodo/pull/464
+
+[^1]: スクリーンショットの保存場所には様々な選択肢があります。Roborazzi公式リポジトリでは[Companion Branch](https://github.com/takahirom/roborazzi-compare-on-github-comment-sample?tab=readme-ov-file#about-the-companion-branch-approach)という手法が紹介されています。
