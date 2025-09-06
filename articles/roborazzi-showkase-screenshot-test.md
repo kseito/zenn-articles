@@ -14,13 +14,17 @@ Roborazzi、Robolectric、Showkaseを組み合わせるとすでに存在するC
 各ライブラリの説明を簡単に記載します。
 
 ### Roborazzi
-TBD
+Androidアプリのスクリーンショットテストを行うためのライブラリです。  
+Robolectricと組み合わせることで、実機やエミュレーターを使用せずにJVMのみでUIテストとスクリーンショットの撮影が可能です。
+Composeに対応しており、UIの変更を視覚的に検知するVRT（Visual Regression Testing）を簡単に実現できます。
 
 ### Robolectric
-TBD
+AndroidアプリのコードをJVM上で実行するためのテスティングフレームワークです。  
+実機やエミュレーターを起動することなく、高速にAndroidのAPIを使ったテストが実行できます。  
 
 ### Showkase
-TBD
+ShowkaseはJetpack Composeの`@Preview`が付いたComposable関数を自動収集するライブラリです。  
+デザインシステムのコンポーネントカタログの作成や、全てのプレビューに対する一括テストを可能にします。
 
 ## 導入手順
 
@@ -146,11 +150,12 @@ class ShowkaseParameterizedTest(private val testCase: TestCase) {
 
 - 新しいコンポーネントを追加しても自動的にテスト対象になります
 - CI/CDに統合することでPRごとにUIの変更を確認できレビューの品質が向上します
-- 生成AIを使ってコードを書く際、ガードレールの1つとして有用です
+- 生成AIを使ってコードを書く際、ガードレールの1つとして有用
 
-特に最後の恩恵は、これから生成AIがコードを書く機会は益々増えていくと思うので、TBD
+特に最後の恩恵は、これから生成AIがコードを書く機会は益々増えていくため、開発速度を上げる仕組みとして重要性が高まると思っています。
 
 ## 参考資料
 - https://github.com/DeNA/android-modern-architecture-test-handson
 - https://github.com/takahirom/roborazzi
 - https://github.com/airbnb/Showkase
+- https://github.com/kseito/RewardedTodo/pull/464
