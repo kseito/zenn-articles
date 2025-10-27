@@ -3,7 +3,7 @@ title: "android-mcp-serverでAndroidの動作確認もClaude Codeにお任せす
 emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["android", "claude", "mcp", "adb"]
-published: false
+published: true
 ---
 
 ## はじめに
