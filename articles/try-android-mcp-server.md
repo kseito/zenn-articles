@@ -36,27 +36,24 @@ android-mcp-serverをClaude Codeに設定する手順は以下の通りです。
 
 ### インストール手順
 
-1. リポジトリをクローン:
+1. リポジトリをクローン
 ```bash
 git clone https://github.com/minhalvp/android-mcp-server.git
 cd android-mcp-server
 ```
 
-2. 依存関係をインストール:
+2. 依存関係をインストール
 ```bash
 uv python install 3.11
 uv sync
 ```
 
-3. Claudeのコマンドでandroid-mcp-serverを追加:
+3. Claude Codeのコマンドでandroid-mcp-serverを追加
 ```bash
-claude mcp add android-mcp-server
+claude mcp add --transport stdio android-mcp --scope user -- uv --directory /path/to/android-mcp-server run server.py
 ```
 
-プロンプトに従って以下のように設定します:
-- Command: `uv`
-- Arguments: `--directory /path/to/android-mcp-server run android-mcp-server`
-  - `/path/to/android-mcp-server`は手順1でクローンしたディレクトリのパスに置き換えてください
+※`/path/to/android-mcp-server`は手順1でクローンしたディレクトリのパスに置き換えてください。
 
 4. Claude Codeを再起動
 
@@ -65,7 +62,7 @@ claude mcp add android-mcp-server
 ## 実際に動作確認してもらう
 
 セットアップが完了したら、Claude Codeに動作確認を依頼できます。
-例えば、以下のように依頼します。
+例えば、機能実装後に以下のように依頼します。
 
 ```
 MCPをつかって動作確認してくれる？Todoの追加・完了の動作確認をお願いします。
@@ -124,15 +121,15 @@ Claude Codeの使用量が気になる方は重要な動作確認のみMCPを使
 
 ### 3. タップ座標のズレ
 
-たまに*Claude Codeが意図したコンポーネントとは異なる座標を延々とタップし続ける**という問題が発生します。
-これは**端末の解像度情報が正しく伝えていない**ことが原因でした。
+たまに**Claude Codeが意図したコンポーネントとは異なる座標を延々とタップし続ける**という問題が発生します。
+これは**端末の解像度情報が伝わっていない**ことが原因でした。
 
 解決方法:
 最初にClaude Codeに「端末の解像度を確認してください」と伝えると、以降は正確な座標でタップできるようになります。
 
 ## まとめ
 
-android-mcp-serverをClaude Codeに組み込むことで、Android アプリの開発フローを効率化できます。
+android-mcp-serverをClaude Codeに組み込むことで、Androidアプリの開発フローを効率化できます。
 
 **メリット:**
 - コーディングから動作確認、PR作成まで一貫してClaude Codeに任せられる
